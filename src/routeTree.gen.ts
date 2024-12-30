@@ -12,6 +12,12 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
+import { Route as CategoryIndexImport } from './routes/category/index'
+import { Route as CategoryAddImport } from './routes/category/add'
+import { Route as CategoryIdentifierImport } from './routes/category/$identifier'
+import { Route as CategoryIdentifierEditImport } from './routes/category/$identifier.edit'
+import { Route as CategoryIdentifierPartAddImport } from './routes/category/$identifier.part.add'
+import { Route as CategoryIdentifierPartPartIdEditImport } from './routes/category/$identifier.part.$partId.edit'
 
 // Create/Update Routes
 
@@ -20,6 +26,43 @@ const IndexRoute = IndexImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
 } as any)
+
+const CategoryIndexRoute = CategoryIndexImport.update({
+  id: '/category/',
+  path: '/category/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const CategoryAddRoute = CategoryAddImport.update({
+  id: '/category/add',
+  path: '/category/add',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const CategoryIdentifierRoute = CategoryIdentifierImport.update({
+  id: '/category/$identifier',
+  path: '/category/$identifier',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const CategoryIdentifierEditRoute = CategoryIdentifierEditImport.update({
+  id: '/edit',
+  path: '/edit',
+  getParentRoute: () => CategoryIdentifierRoute,
+} as any)
+
+const CategoryIdentifierPartAddRoute = CategoryIdentifierPartAddImport.update({
+  id: '/part/add',
+  path: '/part/add',
+  getParentRoute: () => CategoryIdentifierRoute,
+} as any)
+
+const CategoryIdentifierPartPartIdEditRoute =
+  CategoryIdentifierPartPartIdEditImport.update({
+    id: '/part/$partId/edit',
+    path: '/part/$partId/edit',
+    getParentRoute: () => CategoryIdentifierRoute,
+  } as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -32,39 +75,142 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/category/$identifier': {
+      id: '/category/$identifier'
+      path: '/category/$identifier'
+      fullPath: '/category/$identifier'
+      preLoaderRoute: typeof CategoryIdentifierImport
+      parentRoute: typeof rootRoute
+    }
+    '/category/add': {
+      id: '/category/add'
+      path: '/category/add'
+      fullPath: '/category/add'
+      preLoaderRoute: typeof CategoryAddImport
+      parentRoute: typeof rootRoute
+    }
+    '/category/': {
+      id: '/category/'
+      path: '/category'
+      fullPath: '/category'
+      preLoaderRoute: typeof CategoryIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/category/$identifier/edit': {
+      id: '/category/$identifier/edit'
+      path: '/edit'
+      fullPath: '/category/$identifier/edit'
+      preLoaderRoute: typeof CategoryIdentifierEditImport
+      parentRoute: typeof CategoryIdentifierImport
+    }
+    '/category/$identifier/part/add': {
+      id: '/category/$identifier/part/add'
+      path: '/part/add'
+      fullPath: '/category/$identifier/part/add'
+      preLoaderRoute: typeof CategoryIdentifierPartAddImport
+      parentRoute: typeof CategoryIdentifierImport
+    }
+    '/category/$identifier/part/$partId/edit': {
+      id: '/category/$identifier/part/$partId/edit'
+      path: '/part/$partId/edit'
+      fullPath: '/category/$identifier/part/$partId/edit'
+      preLoaderRoute: typeof CategoryIdentifierPartPartIdEditImport
+      parentRoute: typeof CategoryIdentifierImport
+    }
   }
 }
 
 // Create and export the route tree
 
+interface CategoryIdentifierRouteChildren {
+  CategoryIdentifierEditRoute: typeof CategoryIdentifierEditRoute
+  CategoryIdentifierPartAddRoute: typeof CategoryIdentifierPartAddRoute
+  CategoryIdentifierPartPartIdEditRoute: typeof CategoryIdentifierPartPartIdEditRoute
+}
+
+const CategoryIdentifierRouteChildren: CategoryIdentifierRouteChildren = {
+  CategoryIdentifierEditRoute: CategoryIdentifierEditRoute,
+  CategoryIdentifierPartAddRoute: CategoryIdentifierPartAddRoute,
+  CategoryIdentifierPartPartIdEditRoute: CategoryIdentifierPartPartIdEditRoute,
+}
+
+const CategoryIdentifierRouteWithChildren =
+  CategoryIdentifierRoute._addFileChildren(CategoryIdentifierRouteChildren)
+
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/category/$identifier': typeof CategoryIdentifierRouteWithChildren
+  '/category/add': typeof CategoryAddRoute
+  '/category': typeof CategoryIndexRoute
+  '/category/$identifier/edit': typeof CategoryIdentifierEditRoute
+  '/category/$identifier/part/add': typeof CategoryIdentifierPartAddRoute
+  '/category/$identifier/part/$partId/edit': typeof CategoryIdentifierPartPartIdEditRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/category/$identifier': typeof CategoryIdentifierRouteWithChildren
+  '/category/add': typeof CategoryAddRoute
+  '/category': typeof CategoryIndexRoute
+  '/category/$identifier/edit': typeof CategoryIdentifierEditRoute
+  '/category/$identifier/part/add': typeof CategoryIdentifierPartAddRoute
+  '/category/$identifier/part/$partId/edit': typeof CategoryIdentifierPartPartIdEditRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/category/$identifier': typeof CategoryIdentifierRouteWithChildren
+  '/category/add': typeof CategoryAddRoute
+  '/category/': typeof CategoryIndexRoute
+  '/category/$identifier/edit': typeof CategoryIdentifierEditRoute
+  '/category/$identifier/part/add': typeof CategoryIdentifierPartAddRoute
+  '/category/$identifier/part/$partId/edit': typeof CategoryIdentifierPartPartIdEditRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/category/$identifier'
+    | '/category/add'
+    | '/category'
+    | '/category/$identifier/edit'
+    | '/category/$identifier/part/add'
+    | '/category/$identifier/part/$partId/edit'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/category/$identifier'
+    | '/category/add'
+    | '/category'
+    | '/category/$identifier/edit'
+    | '/category/$identifier/part/add'
+    | '/category/$identifier/part/$partId/edit'
+  id:
+    | '__root__'
+    | '/'
+    | '/category/$identifier'
+    | '/category/add'
+    | '/category/'
+    | '/category/$identifier/edit'
+    | '/category/$identifier/part/add'
+    | '/category/$identifier/part/$partId/edit'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CategoryIdentifierRoute: typeof CategoryIdentifierRouteWithChildren
+  CategoryAddRoute: typeof CategoryAddRoute
+  CategoryIndexRoute: typeof CategoryIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CategoryIdentifierRoute: CategoryIdentifierRouteWithChildren,
+  CategoryAddRoute: CategoryAddRoute,
+  CategoryIndexRoute: CategoryIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -77,11 +223,40 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/"
+        "/",
+        "/category/$identifier",
+        "/category/add",
+        "/category/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/category/$identifier": {
+      "filePath": "category/$identifier.tsx",
+      "children": [
+        "/category/$identifier/edit",
+        "/category/$identifier/part/add",
+        "/category/$identifier/part/$partId/edit"
+      ]
+    },
+    "/category/add": {
+      "filePath": "category/add.tsx"
+    },
+    "/category/": {
+      "filePath": "category/index.tsx"
+    },
+    "/category/$identifier/edit": {
+      "filePath": "category/$identifier.edit.tsx",
+      "parent": "/category/$identifier"
+    },
+    "/category/$identifier/part/add": {
+      "filePath": "category/$identifier.part.add.tsx",
+      "parent": "/category/$identifier"
+    },
+    "/category/$identifier/part/$partId/edit": {
+      "filePath": "category/$identifier.part.$partId.edit.tsx",
+      "parent": "/category/$identifier"
     }
   }
 }
