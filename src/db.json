@@ -1,0 +1,232 @@
+{
+  "categories": [
+    {
+      "name": "Podstawowe",
+      "identifier": "basic",
+      "position": 1,
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "name": "Wyposażenie wnętrza",
+      "identifier": "interior",
+      "position": 2
+    },
+    {
+      "id": "3",
+      "name": "Technologie",
+      "identifier": "technology",
+      "position": 3
+    },
+    {
+      "id": "4",
+      "name": "Dodatki zewnętrzne",
+      "identifier": "exterior",
+      "position": 4
+    },
+    {
+      "id": "5",
+      "name": "Bezpieczeństwo",
+      "identifier": "safety",
+      "position": 5
+    },
+    {
+      "id": "3fc6",
+      "name": "nowa podstawowa",
+      "identifier": "basic1",
+      "position": "1"
+    }
+  ],
+  "parts": [
+    {
+      "id": "1",
+      "name": "Silnik 1.5L benzynowy",
+      "price": 5000,
+      "partId": "engine-1.5L",
+      "categoryId": "1"
+    },
+    {
+      "id": "2",
+      "name": "Silnik 2.0L diesel",
+      "price": 8000,
+      "partId": "engine-2.0L",
+      "categoryId": "1"
+    },
+    {
+      "id": "3",
+      "name": "Czarny",
+      "price": 0,
+      "partId": "color-black",
+      "categoryId": "1"
+    },
+    {
+      "id": "4",
+      "name": "Czerwony metalik",
+      "price": 2000,
+      "partId": "color-red-metallic",
+      "categoryId": "1"
+    },
+    {
+      "id": "5",
+      "name": "Tapicerka materiałowa",
+      "price": 0,
+      "partId": "fabric-upholstery",
+      "categoryId": "2"
+    },
+    {
+      "id": "6",
+      "name": "Tapicerka skórzana",
+      "price": 4000,
+      "partId": "leather-upholstery",
+      "categoryId": "2"
+    },
+    {
+      "id": "7",
+      "name": "Czarny wystrój",
+      "price": 0,
+      "partId": "interior-black",
+      "categoryId": "2"
+    },
+    {
+      "id": "8",
+      "name": "System audio standardowy",
+      "price": 0,
+      "partId": "audio-standard",
+      "categoryId": "3"
+    },
+    {
+      "id": "9",
+      "name": "System audio premium",
+      "price": 3000,
+      "partId": "audio-premium",
+      "categoryId": "3"
+    },
+    {
+      "id": "10",
+      "name": "Nawigacja GPS",
+      "price": 2500,
+      "partId": "gps-navigation",
+      "categoryId": "3"
+    },
+    {
+      "id": "11",
+      "name": "Otwierany dach",
+      "price": 1000,
+      "partId": "opening-roof",
+      "categoryId": "4"
+    },
+    {
+      "id": "12",
+      "name": "Relingi dachowe",
+      "price": 500,
+      "partId": "roof-rails",
+      "categoryId": "4"
+    },
+    {
+      "id": "13",
+      "name": "Alufelgi",
+      "price": 1500,
+      "partId": "alloy-wheels",
+      "categoryId": "4"
+    },
+    {
+      "id": "14",
+      "name": "Czujniki martwego pola",
+      "price": 2000,
+      "partId": "blind-spot-sensors",
+      "categoryId": "5"
+    },
+    {
+      "id": "15",
+      "name": "Poduszki powietrzne",
+      "price": 0,
+      "partId": "airbags",
+      "categoryId": "5"
+    },
+    {
+      "id": "16",
+      "name": "System hamowania awaryjnego",
+      "price": 3000,
+      "partId": "emergency-braking",
+      "categoryId": "5"
+    },
+    {
+      "id": "55cc",
+      "name": "1200",
+      "price": 0,
+      "partId": "dopalacz-2",
+      "categoryId": "1"
+    },
+    {
+      "id": "c10c",
+      "name": "dopalacz3000l",
+      "price": "2000",
+      "partId": "dopalacz-3",
+      "categoryId": "1"
+    },
+    {
+      "name": "asdasdad",
+      "price": "111",
+      "partId": "a3ac",
+      "categoryId": "1",
+      "id": "a3ac"
+    },
+    {
+      "name": "asdsad123",
+      "price": "2222",
+      "partId": "7033",
+      "categoryId": "1",
+      "id": "7033"
+    },
+    {
+      "id": "b427",
+      "name": "super audio",
+      "price": "3000",
+      "partId": "super-audio",
+      "categoryId": "3"
+    },
+    {
+      "name": "kolo12",
+      "price": "333",
+      "partId": "eedd",
+      "categoryId": "1",
+      "id": "eedd"
+    },
+    {
+      "id": "b4f5",
+      "name": "asdasdada",
+      "price": "123",
+      "partId": "aaa",
+      "categoryId": null
+    },
+    {
+      "id": "345a",
+      "name": "fffffffff",
+      "price": "123",
+      "partId": "aaa",
+      "categoryId": null
+    },
+    {
+      "id": "4c6d",
+      "name": "hjghjghjhg",
+      "price": "123",
+      "partId": "aaa",
+      "categoryId": null
+    },
+    {
+      "id": "4930",
+      "name": "uyiyuiyuiyui",
+      "price": "123",
+      "partId": "aaa",
+      "categoryId": null
+    },
+    {
+      "name": "kdhngljgjl",
+      "price": 0,
+      "partId": "c285",
+      "categoryId": "1",
+      "id": "c285"
+    }
+  ],
+  "orders": []
+}
