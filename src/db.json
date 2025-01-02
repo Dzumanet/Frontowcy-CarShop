@@ -149,84 +149,8 @@
       "price": 3000,
       "partId": "emergency-braking",
       "categoryId": "5"
-    },
-    {
-      "id": "55cc",
-      "name": "1200",
-      "price": 0,
-      "partId": "dopalacz-2",
-      "categoryId": "1"
-    },
-    {
-      "id": "c10c",
-      "name": "dopalacz3000l",
-      "price": "2000",
-      "partId": "dopalacz-3",
-      "categoryId": "1"
-    },
-    {
-      "name": "asdasdad",
-      "price": "111",
-      "partId": "a3ac",
-      "categoryId": "1",
-      "id": "a3ac"
-    },
-    {
-      "name": "asdsad123",
-      "price": "2222",
-      "partId": "7033",
-      "categoryId": "1",
-      "id": "7033"
-    },
-    {
-      "id": "b427",
-      "name": "super audio",
-      "price": "3000",
-      "partId": "super-audio",
-      "categoryId": "3"
-    },
-    {
-      "name": "kolo12",
-      "price": "333",
-      "partId": "eedd",
-      "categoryId": "1",
-      "id": "eedd"
-    },
-    {
-      "id": "b4f5",
-      "name": "asdasdada",
-      "price": "123",
-      "partId": "aaa",
-      "categoryId": null
-    },
-    {
-      "id": "345a",
-      "name": "fffffffff",
-      "price": "123",
-      "partId": "aaa",
-      "categoryId": null
-    },
-    {
-      "id": "4c6d",
-      "name": "hjghjghjhg",
-      "price": "123",
-      "partId": "aaa",
-      "categoryId": null
-    },
-    {
-      "id": "4930",
-      "name": "uyiyuiyuiyui",
-      "price": "123",
-      "partId": "aaa",
-      "categoryId": null
-    },
-    {
-      "name": "kdhngljgjl",
-      "price": 0,
-      "partId": "c285",
-      "categoryId": "1",
-      "id": "c285"
     }
+
   ],
   "orders": []
 }

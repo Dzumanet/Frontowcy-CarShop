@@ -5,7 +5,8 @@ import { Category } from "../types";
 export const categoryOptions = (identifier: string) => queryOptions({
     queryKey: ['category', identifier],
     queryFn: async () => {
-        return apiCall<Category>(`categories?identifier=${identifier}`);
+        const response = await apiCall<Category[]>(`categories?identifier=${identifier}`);
+        return response[0];
     },
     staleTime: 1000 * 60,
 })
