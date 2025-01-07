@@ -11,9 +11,7 @@ export const useDeleteCategoryMutation = () => {
             method: 'DELETE',
         }),
         onSuccess: () => {
-            queryClient.invalidateQueries({
-                queryKey: ['category']
-            })
+            queryClient.invalidateQueries({ queryKey: ['category'] });
         }
     })
 };

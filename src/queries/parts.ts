@@ -8,4 +8,4 @@ export const partsOptions = (categoryId: string) => queryOptions({
         return apiCall<Part[]>(`parts?categoryId=${categoryId}`);
     },
     staleTime: 1000 * 60,
-})
+});

@@ -11,10 +11,10 @@ export const useUpdatePartMutation = (id: string) => {
             method: 'PUT',
             body
         }),
+
         onSuccess: () => {
-            queryClient.invalidateQueries({
-                queryKey: ['parts']
-            })
+            queryClient.invalidateQueries({ queryKey: ['parts', id] });
+            queryClient.invalidateQueries({ queryKey: ['parts'] });
         }
     })
-};
+}
