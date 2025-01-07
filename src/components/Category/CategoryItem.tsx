@@ -1,45 +1,35 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { categoryOptions } from "../../queries/category.ts";
 import { Route } from "../../routes/category/$identifier.tsx";
-import { partsOptions } from "../../queries/parts.ts";
-import { Outlet } from "@tanstack/react-router";
-import { useState } from "react";
+import { Outlet, useNavigate } from "@tanstack/react-router";
+import { Button } from "@mui/material";
+import { PartsList } from "../Part/PartsList.tsx";
 
 export const CategoryItem = () => {
     const { identifier } = Route.useParams();
-
     const { data: categoryData } = useSuspenseQuery(categoryOptions(identifier));
-
     const categoryId = categoryData.id;
+    const navigate = useNavigate();
 
-    const { data: partsData } = useSuspenseQuery(partsOptions(categoryId));
-
-    const [showEdit, setShowEdit] = useState(false);
-
-    const toggleEdit = () => setShowEdit(prev => !prev);
-
+    const handleEditCategory = (identifier: string) => {
+        navigate({
+            to: `/category/$identifier/edit`, params: {
+                identifier
+            }
+        });
+    };
 
     return (
         <>
             <div>
-                <h2>Category name: {categoryData.identifier}</h2>
+                <h2>Category name: {categoryData.name}</h2>
                 <h3>Category position in creator: {categoryData.position}</h3>
-                <button onClick={() => toggleEdit()}>Edit parts</button>
-                <button>Edit category</button>
 
+                <Button variant="outlined" size="small"
+                        onClick={() => handleEditCategory(identifier)}>Edit category</Button>
             </div>
-            <ul>
-                {partsData.map(part => (
-                    <li key={part.id}>{part.name}
-                        {showEdit ? <>
-                            <button>Edit</button>
-                            <button>Delete</button>
-                        </> : null}
-                    </li>
-                ))}
-            </ul>
-            {showEdit ? <button>Add new part</button> : null}
 
+            <PartsList identifier={identifier} categoryId={categoryId} />
             <Outlet />
         </>
     );
