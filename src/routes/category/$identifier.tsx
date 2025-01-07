@@ -11,7 +11,7 @@ export const Route = createFileRoute('/category/$identifier')({
 
         const categoryData = await queryClient.ensureQueryData(categoryOptions(identifier));
 
-        const categoryId = categoryData.id
+        const categoryId = categoryData.id;
 
         if (categoryId) {
             await queryClient.ensureQueryData(partsOptions(categoryId));

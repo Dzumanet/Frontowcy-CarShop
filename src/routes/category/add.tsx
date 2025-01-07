@@ -1,9 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { AddCategory } from "../../components/Category/AddCategory.tsx";
 
 export const Route = createFileRoute('/category/add')({
-  component: RouteComponent,
+  component: AddCategory,
 })
 
-function RouteComponent() {
-  return <div>Hello "/category/add"!</div>
-}

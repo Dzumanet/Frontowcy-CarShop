@@ -19,138 +19,131 @@
       "position": 3
     },
     {
-      "id": "4",
       "name": "Dodatki zewnętrzne",
       "identifier": "exterior",
-      "position": 4
+      "position": "1",
+      "id": "4"
     },
     {
       "id": "5",
       "name": "Bezpieczeństwo",
       "identifier": "safety",
       "position": 5
-    },
-    {
-      "id": "3fc6",
-      "name": "nowa podstawowa",
-      "identifier": "basic1",
-      "position": "1"
     }
   ],
   "parts": [
     {
-      "id": "1",
-      "name": "Silnik 1.5L benzynowy",
+      "name": "Silnik 1.5L benzynowy turbo",
       "price": 5000,
-      "partId": "engine-1.5L",
-      "categoryId": "1"
+      "partNameId": "fdse",
+      "categoryId": "1",
+      "id": "fdse"
     },
     {
-      "id": "2",
+      "id": "fdsr",
       "name": "Silnik 2.0L diesel",
       "price": 8000,
-      "partId": "engine-2.0L",
+      "partNameId": "engine-2.0L",
       "categoryId": "1"
     },
     {
-      "id": "3",
-      "name": "Czarny",
+      "name": "Czarny Mat",
       "price": 0,
-      "partId": "color-black",
-      "categoryId": "1"
+      "partNameId": "black-mat",
+      "categoryId": "1",
+      "id": "sder"
     },
     {
-      "id": "4",
       "name": "Czerwony metalik",
       "price": 2000,
-      "partId": "color-red-metallic",
-      "categoryId": "1"
+      "partNameId": "red-lak",
+      "categoryId": "1",
+      "id": "lek4"
     },
     {
       "id": "5",
       "name": "Tapicerka materiałowa",
       "price": 0,
-      "partId": "fabric-upholstery",
+      "partNameId": "fabric-upholstery",
       "categoryId": "2"
     },
     {
       "id": "6",
       "name": "Tapicerka skórzana",
       "price": 4000,
-      "partId": "leather-upholstery",
+      "partNameId": "leather-upholstery",
       "categoryId": "2"
     },
     {
       "id": "7",
       "name": "Czarny wystrój",
       "price": 0,
-      "partId": "interior-black",
+      "partNameId": "interior-black",
       "categoryId": "2"
     },
     {
       "id": "8",
       "name": "System audio standardowy",
       "price": 0,
-      "partId": "audio-standard",
+      "partNameId": "audio-standard",
       "categoryId": "3"
     },
     {
-      "id": "9",
       "name": "System audio premium",
       "price": 3000,
-      "partId": "audio-premium",
-      "categoryId": "3"
+      "partNameId": "9",
+      "categoryId": "3",
+      "id": "9"
     },
     {
       "id": "10",
       "name": "Nawigacja GPS",
       "price": 2500,
-      "partId": "gps-navigation",
+      "partNameId": "gps-navigation",
       "categoryId": "3"
     },
     {
       "id": "11",
       "name": "Otwierany dach",
       "price": 1000,
-      "partId": "opening-roof",
+      "partNameId": "opening-roof",
       "categoryId": "4"
     },
     {
       "id": "12",
       "name": "Relingi dachowe",
       "price": 500,
-      "partId": "roof-rails",
+      "partNameId": "roof-rails",
       "categoryId": "4"
     },
     {
-      "id": "13",
-      "name": "Alufelgi",
+      "name": "Alufelgi1",
       "price": 1500,
-      "partId": "alloy-wheels",
-      "categoryId": "4"
+      "partNameId": "13",
+      "categoryId": "4",
+      "id": "13"
     },
     {
       "id": "14",
       "name": "Czujniki martwego pola",
       "price": 2000,
-      "partId": "blind-spot-sensors",
+      "partNameId": "blind-spot-sensors",
       "categoryId": "5"
     },
     {
       "id": "15",
       "name": "Poduszki powietrzne",
       "price": 0,
-      "partId": "airbags",
+      "partNameId": "airbags",
       "categoryId": "5"
     },
     {
       "id": "16",
       "name": "System hamowania awaryjnego",
       "price": 3000,
-      "partId": "emergency-braking",
+      "partNameId": "emergency-braking",
       "categoryId": "5"
     }
-
   ],
   "orders": []
 }

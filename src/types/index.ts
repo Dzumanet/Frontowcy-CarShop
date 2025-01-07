@@ -16,7 +16,7 @@ export type Part = {
     id: string;
     name: string;
     price: number;
-    partId: string;
+    partNameId: string;
     categoryId: string;
 }
 
