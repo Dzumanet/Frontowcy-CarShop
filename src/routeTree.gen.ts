@@ -12,7 +12,11 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
+import { Route as OrdersIndexImport } from './routes/orders/index'
+import { Route as CreatorIndexImport } from './routes/creator/index'
 import { Route as CategoryIndexImport } from './routes/category/index'
+import { Route as CreatorSummaryImport } from './routes/creator/summary'
+import { Route as CreatorIdentifierImport } from './routes/creator/$identifier'
 import { Route as CategoryAddImport } from './routes/category/add'
 import { Route as CategoryIdentifierImport } from './routes/category/$identifier'
 import { Route as CategoryIdentifierEditImport } from './routes/category/$identifier.edit'
@@ -27,9 +31,33 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const OrdersIndexRoute = OrdersIndexImport.update({
+  id: '/orders/',
+  path: '/orders/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const CreatorIndexRoute = CreatorIndexImport.update({
+  id: '/creator/',
+  path: '/creator/',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const CategoryIndexRoute = CategoryIndexImport.update({
   id: '/category/',
   path: '/category/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const CreatorSummaryRoute = CreatorSummaryImport.update({
+  id: '/creator/summary',
+  path: '/creator/summary',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const CreatorIdentifierRoute = CreatorIdentifierImport.update({
+  id: '/creator/$identifier',
+  path: '/creator/$identifier',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -89,11 +117,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CategoryAddImport
       parentRoute: typeof rootRoute
     }
+    '/creator/$identifier': {
+      id: '/creator/$identifier'
+      path: '/creator/$identifier'
+      fullPath: '/creator/$identifier'
+      preLoaderRoute: typeof CreatorIdentifierImport
+      parentRoute: typeof rootRoute
+    }
+    '/creator/summary': {
+      id: '/creator/summary'
+      path: '/creator/summary'
+      fullPath: '/creator/summary'
+      preLoaderRoute: typeof CreatorSummaryImport
+      parentRoute: typeof rootRoute
+    }
     '/category/': {
       id: '/category/'
       path: '/category'
       fullPath: '/category'
       preLoaderRoute: typeof CategoryIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/creator/': {
+      id: '/creator/'
+      path: '/creator'
+      fullPath: '/creator'
+      preLoaderRoute: typeof CreatorIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/orders/': {
+      id: '/orders/'
+      path: '/orders'
+      fullPath: '/orders'
+      preLoaderRoute: typeof OrdersIndexImport
       parentRoute: typeof rootRoute
     }
     '/category/$identifier/edit': {
@@ -142,7 +198,11 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/category/$identifier': typeof CategoryIdentifierRouteWithChildren
   '/category/add': typeof CategoryAddRoute
+  '/creator/$identifier': typeof CreatorIdentifierRoute
+  '/creator/summary': typeof CreatorSummaryRoute
   '/category': typeof CategoryIndexRoute
+  '/creator': typeof CreatorIndexRoute
+  '/orders': typeof OrdersIndexRoute
   '/category/$identifier/edit': typeof CategoryIdentifierEditRoute
   '/category/$identifier/part/add': typeof CategoryIdentifierPartAddRoute
   '/category/$identifier/part/$partNameId/edit': typeof CategoryIdentifierPartPartNameIdEditRoute
@@ -152,7 +212,11 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/category/$identifier': typeof CategoryIdentifierRouteWithChildren
   '/category/add': typeof CategoryAddRoute
+  '/creator/$identifier': typeof CreatorIdentifierRoute
+  '/creator/summary': typeof CreatorSummaryRoute
   '/category': typeof CategoryIndexRoute
+  '/creator': typeof CreatorIndexRoute
+  '/orders': typeof OrdersIndexRoute
   '/category/$identifier/edit': typeof CategoryIdentifierEditRoute
   '/category/$identifier/part/add': typeof CategoryIdentifierPartAddRoute
   '/category/$identifier/part/$partNameId/edit': typeof CategoryIdentifierPartPartNameIdEditRoute
@@ -163,7 +227,11 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/category/$identifier': typeof CategoryIdentifierRouteWithChildren
   '/category/add': typeof CategoryAddRoute
+  '/creator/$identifier': typeof CreatorIdentifierRoute
+  '/creator/summary': typeof CreatorSummaryRoute
   '/category/': typeof CategoryIndexRoute
+  '/creator/': typeof CreatorIndexRoute
+  '/orders/': typeof OrdersIndexRoute
   '/category/$identifier/edit': typeof CategoryIdentifierEditRoute
   '/category/$identifier/part/add': typeof CategoryIdentifierPartAddRoute
   '/category/$identifier/part/$partNameId/edit': typeof CategoryIdentifierPartPartNameIdEditRoute
@@ -175,7 +243,11 @@ export interface FileRouteTypes {
     | '/'
     | '/category/$identifier'
     | '/category/add'
+    | '/creator/$identifier'
+    | '/creator/summary'
     | '/category'
+    | '/creator'
+    | '/orders'
     | '/category/$identifier/edit'
     | '/category/$identifier/part/add'
     | '/category/$identifier/part/$partNameId/edit'
@@ -184,7 +256,11 @@ export interface FileRouteTypes {
     | '/'
     | '/category/$identifier'
     | '/category/add'
+    | '/creator/$identifier'
+    | '/creator/summary'
     | '/category'
+    | '/creator'
+    | '/orders'
     | '/category/$identifier/edit'
     | '/category/$identifier/part/add'
     | '/category/$identifier/part/$partNameId/edit'
@@ -193,7 +269,11 @@ export interface FileRouteTypes {
     | '/'
     | '/category/$identifier'
     | '/category/add'
+    | '/creator/$identifier'
+    | '/creator/summary'
     | '/category/'
+    | '/creator/'
+    | '/orders/'
     | '/category/$identifier/edit'
     | '/category/$identifier/part/add'
     | '/category/$identifier/part/$partNameId/edit'
@@ -204,14 +284,22 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CategoryIdentifierRoute: typeof CategoryIdentifierRouteWithChildren
   CategoryAddRoute: typeof CategoryAddRoute
+  CreatorIdentifierRoute: typeof CreatorIdentifierRoute
+  CreatorSummaryRoute: typeof CreatorSummaryRoute
   CategoryIndexRoute: typeof CategoryIndexRoute
+  CreatorIndexRoute: typeof CreatorIndexRoute
+  OrdersIndexRoute: typeof OrdersIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CategoryIdentifierRoute: CategoryIdentifierRouteWithChildren,
   CategoryAddRoute: CategoryAddRoute,
+  CreatorIdentifierRoute: CreatorIdentifierRoute,
+  CreatorSummaryRoute: CreatorSummaryRoute,
   CategoryIndexRoute: CategoryIndexRoute,
+  CreatorIndexRoute: CreatorIndexRoute,
+  OrdersIndexRoute: OrdersIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -227,7 +315,11 @@ export const routeTree = rootRoute
         "/",
         "/category/$identifier",
         "/category/add",
-        "/category/"
+        "/creator/$identifier",
+        "/creator/summary",
+        "/category/",
+        "/creator/",
+        "/orders/"
       ]
     },
     "/": {
@@ -244,8 +336,20 @@ export const routeTree = rootRoute
     "/category/add": {
       "filePath": "category/add.tsx"
     },
+    "/creator/$identifier": {
+      "filePath": "creator/$identifier.tsx"
+    },
+    "/creator/summary": {
+      "filePath": "creator/summary.tsx"
+    },
     "/category/": {
       "filePath": "category/index.tsx"
+    },
+    "/creator/": {
+      "filePath": "creator/index.tsx"
+    },
+    "/orders/": {
+      "filePath": "orders/index.tsx"
     },
     "/category/$identifier/edit": {
       "filePath": "category/$identifier.edit.tsx",

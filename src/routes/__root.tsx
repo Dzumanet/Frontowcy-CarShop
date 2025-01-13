@@ -10,7 +10,8 @@ const RootComponent = () => {
             <nav>
                 <ul>
                     <li><Link to="/category">Categories</Link></li>
-                    <li><Link>Creator</Link></li>
+                    <li><Link to="/creator">Creator</Link></li>
+                    <li><Link to="/orders">Orders</Link></li>
                 </ul>
             </nav>
             <Outlet />

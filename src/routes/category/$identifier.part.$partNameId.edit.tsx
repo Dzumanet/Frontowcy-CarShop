@@ -4,7 +4,7 @@ import { partOptions } from '../../queries/part.ts';
 
 export const Route = createFileRoute('/category/$identifier/part/$partNameId/edit')({
     component: EditPart,
-    loader: async ({ context, params }) => {
+    loader: ({ context, params }) => {
         const { queryClient } = context;
         const { partNameId } = params;
 

@@ -4,7 +4,7 @@ import { categoryOptions } from "../../queries/category.ts";
 
 export const Route = createFileRoute('/category/$identifier/part/add')({
     component: AddPart,
-    loader: async ({ context, params }) => {
+    loader: ({ context, params }) => {
         const { queryClient } = context;
         const { identifier } = params;
         return queryClient.ensureQueryData(categoryOptions(identifier));
