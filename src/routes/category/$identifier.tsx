@@ -9,12 +9,21 @@ export const Route = createFileRoute('/category/$identifier')({
         const { queryClient } = context;
         const { identifier } = params;
 
-        const categoryData = await queryClient.ensureQueryData(categoryOptions(identifier));
+        try {
+            const categoryData = await queryClient.ensureQueryData(categoryOptions(identifier));
 
-        const categoryId = categoryData.id;
+            if (!categoryData || !categoryData.id) {
+                throw new Error(`Category not found for identifier "${identifier}"`);
+            }
 
-        if (categoryId) {
+            const categoryId = categoryData.id;
+
             await queryClient.ensureQueryData(partsOptions(categoryId));
+
+            return { category: categoryData };
+
+        } catch (error) {
+            throw new Error(`Could not load data for category "${identifier}"`);
         }
     }
 });

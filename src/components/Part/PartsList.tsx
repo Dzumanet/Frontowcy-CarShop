@@ -37,16 +37,12 @@ export const PartsList = ({ categoryId, identifier }: PartsListProps) => {
                     <ListItemButton key={part.id} onClick={() => handleEdit(identifier, part.partNameId)}>
                         <Tooltip title="Click to edit or delete" placement="bottom-start">
                             <ListItemText primary={part.name} />
-
                         </Tooltip>
                     </ListItemButton>
                 ))}
             </List>
-
             <Button variant="outlined" size="small"
                     onClick={() => handleAdd(identifier)}>Add part</Button>
-
-
         </Box>
     );
 };

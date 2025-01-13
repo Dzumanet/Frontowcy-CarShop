@@ -4,12 +4,14 @@ import { partOptions } from '../../queries/part.ts';
 
 export const Route = createFileRoute('/category/$identifier/part/$partNameId/edit')({
     component: EditPart,
-    loader: ({ context, params }) => {
+    loader: async ({ context, params }) => {
         const { queryClient } = context;
         const { partNameId } = params;
 
-        return queryClient.ensureQueryData(
-            partOptions(partNameId),
-        );
+        try {
+            return await queryClient.ensureQueryData(partOptions(partNameId));
+        } catch (error) {
+            throw new Error(`Could not load data for part "${partNameId}"`);
+        }
     },
 });

@@ -5,7 +5,11 @@ import { Order } from "../types";
 export const ordersOptions = queryOptions({
     queryKey: ['orders'],
     queryFn: async () => {
-        return apiCall<Order[]>('orders');
+        try {
+            return await apiCall<Order[]>('orders');
+        } catch (error) {
+            throw new Error('Failed to fetch orders');
+        }
     },
     staleTime: 1000 * 60,
-})
+});

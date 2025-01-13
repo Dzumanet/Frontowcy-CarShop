@@ -4,9 +4,12 @@ import { categoriesOptions } from "../../queries/categories.ts";
 
 export const Route = createFileRoute('/category/')({
     component: CategoryList,
-    loader: ({ context }) => {
+    loader: async ({ context }) => {
         const { queryClient } = context;
-        return queryClient.ensureQueryData(categoriesOptions);
+        try {
+            return await queryClient.ensureQueryData(categoriesOptions);
+        } catch (error) {
+            throw new Error('Could not load categories.');
+        }
     }
-
 });

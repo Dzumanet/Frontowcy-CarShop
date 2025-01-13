@@ -5,12 +5,16 @@ import { Category } from "../types";
 export const categoryOptions = (identifier: string) => queryOptions({
     queryKey: ['category', identifier],
     queryFn: async () => {
-        const response = await apiCall<Category[]>(`categories?identifier=${identifier}`);
-        if (!response.length) {
-            throw new Error(`No part found for partNameId "${identifier}"`);
+        try {
+            const response = await apiCall<Category[]>(`categories?identifier=${identifier}`);
+            if (!response.length) {
+                throw new Error(`No category found for identifier: "${identifier}"`);
+            }
+            return response[0];
+        } catch (error) {
+            throw new Error(`Failed to fetch category for identifier "${identifier}"`);
         }
-        return response[0];
     },
     staleTime: 1000 * 60,
-})
+});
 

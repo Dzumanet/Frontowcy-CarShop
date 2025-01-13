@@ -5,7 +5,11 @@ import { Category } from "../types";
 export const categoriesOptions = queryOptions({
     queryKey: ['category'],
     queryFn: async () => {
-        return apiCall<Category[]>('categories');
+        try {
+            return await apiCall<Category[]>('categories');
+        } catch (error) {
+            throw new Error('Failed to fetch categories!');
+        }
     },
     staleTime: 1000 * 60,
 })

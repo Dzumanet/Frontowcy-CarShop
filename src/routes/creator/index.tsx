@@ -1,13 +1,18 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-router';
 import { Creator } from "../../pages/Creator.tsx";
 import { categoriesOptions } from "../../queries/categories.ts";
 
 export const Route = createFileRoute('/creator/')({
-  component: Creator,
-  loader: ({ context }) => {
-    const { queryClient } = context;
-    return queryClient.ensureQueryData(categoriesOptions);
-  }
-})
+    component: Creator,
+    loader: async ({ context }) => {
+        const { queryClient } = context;
+
+        try {
+            return await queryClient.ensureQueryData(categoriesOptions);
+        } catch (error) {
+            throw new Error('Could not load categories.');
+        }
+    }
+});
 
 

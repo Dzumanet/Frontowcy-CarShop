@@ -1,4 +1,3 @@
-
 import { queryOptions } from "@tanstack/react-query";
 import { apiCall } from "../utils/apiCall.ts";
 import { CategoryWithParts } from "../types";
@@ -6,7 +5,11 @@ import { CategoryWithParts } from "../types";
 export const categoryWithPartsOptions = (id: string) => queryOptions({
     queryKey: ['category', id],
     queryFn: async () => {
-        return apiCall<CategoryWithParts>(`categories/${id}?_embed=parts`);
+        try {
+            return await apiCall<CategoryWithParts>(`categories/${id}?_embed=parts`);
+        } catch (error) {
+            throw new Error(`Failed to fetch category with parts for ID "${id}"`);
+        }
     },
     staleTime: 1000 * 60,
-})
+});
