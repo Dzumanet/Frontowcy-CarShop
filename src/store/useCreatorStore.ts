@@ -6,19 +6,13 @@ type CreatorState = {
     order: {
         selectedParts: Part[];
         totalPrice: number;
-    },
-    clientInfo: {
-        clientName: string;
-        clientEmail: string;
-    },
-
+    }
 };
 
 type CreatorActions = {
     setOrderData: (payload: SetOrderDataAction) => void;
     removePart: (partId: string) => void;
     resetConfiguration: () => void;
-    setClientInfo: (payload: SetClientInfoAction) => void;
 };
 
 type SetOrderDataAction = {
@@ -26,19 +20,10 @@ type SetOrderDataAction = {
     totalPrice: number;
 };
 
-type SetClientInfoAction = {
-    clientName: string;
-    clientEmail: string;
-}
-
 const initialState: CreatorState = {
     order: {
         selectedParts: [],
         totalPrice: 0,
-    },
-    clientInfo: {
-        clientName: '',
-        clientEmail: '',
     }
 };
 
@@ -56,10 +41,6 @@ export const useCreatorStore = create<CreatorState & CreatorActions>()(
                         totalPrice: payload.totalPrice,
                     },
                 })),
-            setClientInfo: (payload: SetClientInfoAction) =>
-                set({
-                    clientInfo: payload,
-                }),
             removePart: (partId: string) =>
                 set((state) => {
                     const partToRemove = state.order.selectedParts.find(
@@ -80,7 +61,6 @@ export const useCreatorStore = create<CreatorState & CreatorActions>()(
             resetConfiguration: () =>
                 set({
                     order: initialState.order,
-                    clientInfo: initialState.clientInfo,
                 }),
         }),
         {
