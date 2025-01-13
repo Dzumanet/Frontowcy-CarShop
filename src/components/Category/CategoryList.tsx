@@ -2,9 +2,11 @@ import { useNavigate } from '@tanstack/react-router';
 import { Button, List, ListItemButton, ListItemText, Tooltip } from '@mui/material';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { categoriesOptions } from "../../queries/categories.ts";
+import { CircularProgress } from "../../ui/CircularProgress.tsx";
+import { Suspense } from "react";
 
 export const CategoryList = () => {
-    const { data } = useSuspenseQuery(categoriesOptions);
+    const { data: categoriesData } = useSuspenseQuery(categoriesOptions);
     const navigate = useNavigate();
 
     const handleOpen = () => {
@@ -20,11 +22,11 @@ export const CategoryList = () => {
     };
 
     return (
-        <div>
+        <Suspense fallback={<CircularProgress />}>
             <h2>Category List</h2>
             <Button variant="outlined" size="small" onClick={handleOpen}>Add Category</Button>
             <List component="nav">
-                {data.map((category) => (
+                {categoriesData.map((category) => (
                     <ListItemButton key={category.id} onClick={() => handleEdit(category.identifier)}>
                         <Tooltip title="Click to edit or delete" placement="bottom-start">
                             <ListItemText primary={category.name} />
@@ -32,6 +34,6 @@ export const CategoryList = () => {
                     </ListItemButton>
                 ))}
             </List>
-        </div>
+        </Suspense>
     );
 };

@@ -7,19 +7,19 @@ import { categoryOptions } from "../../queries/category.ts";
 import { useNavigate } from "@tanstack/react-router";
 import { Modal } from "../../ui/Modal.tsx";
 import { useState } from "react";
+import { CircularProgress } from "../../ui/CircularProgress.tsx";
 
 export const AddPart = () => {
     const { identifier } = Route.useParams();
-
     const { data: categoryData } = useSuspenseQuery(categoryOptions(identifier));
-    const { mutate } = useCreatePartMutation();
+    const { mutate: createPart, isPending } = useCreatePartMutation();
     const navigate = useNavigate();
     const [open, setOpen] = useState(true);
 
     const categoryId = categoryData.id;
 
     const onSubmit = (data: PartDTO) => {
-        mutate(data, {
+        createPart(data, {
             onSuccess: () => {
                 navigate({
                     to: "/category/$identifier", params: {
@@ -29,6 +29,8 @@ export const AddPart = () => {
             }
         });
     };
+
+    if (isPending) return <CircularProgress />;
 
     const handleClose = () => {
         setOpen(false);
@@ -52,6 +54,5 @@ export const AddPart = () => {
                 categoryId
             }} onSubmit={onSubmit} label="Save" />
         </Modal>
-    )
-        ;
+    );
 };

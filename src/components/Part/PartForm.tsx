@@ -11,7 +11,6 @@ type PartFormProps = {
     onDelete?: () => void;
 }
 
-
 export const PartForm = ({ defaultValues, onSubmit, label, onDelete }: PartFormProps) => {
     const { register, handleSubmit } = useForm<PartDTO>({ defaultValues });
 

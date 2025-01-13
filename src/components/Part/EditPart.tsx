@@ -9,18 +9,17 @@ import { useState } from "react";
 import { useDeletePartMutation } from "../../mutation/useDeletePartMutation.ts";
 import { ConfirmDialog } from "../../ui/ConfirmDialog.tsx";
 import { Route } from "../../routes/category/$identifier.part.$partNameId.edit.tsx";
+import { CircularProgress } from "../../ui/CircularProgress.tsx";
 
 
 export const EditPart = () => {
     const { partNameId, identifier } = Route.useParams();
     const { data: partsData } = useSuspenseQuery(partOptions(partNameId));
-    const { mutate: deletePart } = useDeletePartMutation();
-    const { mutate: updatePart } = useUpdatePartMutation(partsData.id);
+    const { mutate: deletePart, isPending: isDeleting } = useDeletePartMutation();
+    const { mutate: updatePart, isPending: isUpdating } = useUpdatePartMutation(partsData.id);
     const [dialogOpen, setDialogOpen] = useState(false);
     const [open, setOpen] = useState(true);
-
     const navigate = useNavigate();
-
 
     const handleDelete = (id: string) => {
         deletePart(id, {
@@ -65,6 +64,10 @@ export const EditPart = () => {
         setDialogOpen(false);
     };
 
+    if (isDeleting || isUpdating) {
+        return <CircularProgress />;
+    }
+
     return (
         <Modal
             open={open}
@@ -81,7 +84,6 @@ export const EditPart = () => {
                 onSubmit={onSubmit} label="Save"
                 onDelete={handleDialogOpen}
             />
-
             <ConfirmDialog
                 open={dialogOpen}
                 onClose={handleDialogClose}
@@ -89,7 +91,6 @@ export const EditPart = () => {
                 title="Confirm Deletion"
                 description="Are you sure you want to delete this part? This action cannot be undone."
             />
-
         </Modal>
     );
 };

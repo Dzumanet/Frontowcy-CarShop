@@ -9,12 +9,13 @@ import { useDeleteCategoryMutation } from "../../mutation/useDeleteCategoryMutat
 import { Modal } from "../../ui/Modal.tsx";
 import { useState } from "react";
 import { ConfirmDialog } from "../../ui/ConfirmDialog.tsx";
+import { CircularProgress } from "../../ui/CircularProgress.tsx";
 
 export const EditCategory = () => {
     const { identifier } = Route.useParams();
     const { data: categoryData } = useSuspenseQuery(categoryOptions(identifier));
-    const { mutate: deleteCategory } = useDeleteCategoryMutation();
-    const { mutate: updateCategory } = useUpdateCategoryMutation(categoryData.id);
+    const { mutate: deleteCategory, isPending: isDeleting } = useDeleteCategoryMutation();
+    const { mutate: updateCategory, isPending: isUpdating } = useUpdateCategoryMutation(categoryData.id);
     const [dialogOpen, setDialogOpen] = useState(false);
     const [open, setOpen] = useState(true);
     const navigate = useNavigate();
@@ -51,6 +52,9 @@ export const EditCategory = () => {
         setDialogOpen(false);
     };
 
+    if (isDeleting || isUpdating) {
+        return <CircularProgress />;
+    }
 
     return (
         <Modal

@@ -10,7 +10,7 @@ type ClientInfoFormProps = {
 }
 
 
-export const ClientInfoForm = ({defaultValues, onSubmit}: ClientInfoFormProps) => {
+export const ClientInfoForm = ({ defaultValues, onSubmit }: ClientInfoFormProps) => {
     const { register, handleSubmit } = useForm<OrderDTO>({ defaultValues });
 
     return (
@@ -18,20 +18,17 @@ export const ClientInfoForm = ({defaultValues, onSubmit}: ClientInfoFormProps) =
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
                     <Input type="text" label="First Name" {...register('firstName')} required />
-
                 </div>
                 <div>
                     <Input type="text" label="Last Name" {...register('lastName')} required />
-
                 </div>
                 <div>
                     <Input type="text" label="E-mail" {...register('email')} required />
-
                 </div>
                 <ButtonWrapper>
                     <Button variant="outlined" type="submit">Save order</Button>
                 </ButtonWrapper>
             </form>
         </Container>
-    )
+    );
 };

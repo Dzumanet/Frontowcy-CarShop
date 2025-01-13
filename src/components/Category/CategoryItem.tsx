@@ -28,7 +28,6 @@ export const CategoryItem = () => {
                 <Button variant="outlined" size="small"
                         onClick={() => handleEditCategory(identifier)}>Edit category</Button>
             </div>
-
             <PartsList identifier={identifier} categoryId={categoryId} />
             <Outlet />
         </>

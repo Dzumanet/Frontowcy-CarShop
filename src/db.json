@@ -1,12 +1,6 @@
 {
   "categories": [
     {
-      "name": "Podstawowe",
-      "identifier": "basic",
-      "position": 1,
-      "id": "1"
-    },
-    {
       "id": "2",
       "name": "Wyposażenie wnętrza",
       "identifier": "interior",
@@ -29,6 +23,12 @@
       "name": "Bezpieczeństwo",
       "identifier": "safety",
       "position": 5
+    },
+    {
+      "id": "1",
+      "name": "Podtstawowe",
+      "identifier": "basic",
+      "position": "1"
     }
   ],
   "parts": [
@@ -143,39 +143,7 @@
       "price": 3000,
       "partNameId": "emergency-braking",
       "categoryId": "5"
-    },
-    {
-      "id": "c545",
-      "name": "asdasd",
-      "price": 0,
-      "partNameId": "asdasda",
-      "categoryId": null
     }
   ],
-  "orders": [
-    {
-      "id": "fe18",
-      "firstName": "Frodo",
-      "lastName": "bagins",
-      "email": "frodo@frodo.pl",
-      "value": 22000,
-      "details": "Silnik 2.0L diesel, Tapicerka skórzana, Nawigacja GPS, System audio premium, System audio standardowy, Alufelgi1, System hamowania awaryjnego, Poduszki powietrzne, asdasd"
-    },
-    {
-      "id": "7ae0",
-      "firstName": "dfg",
-      "lastName": "dgf",
-      "email": "dfg",
-      "value": 14000,
-      "details": "Silnik 2.0L diesel, Czarny wystrój, System audio premium, Otwierany dach, Czujniki martwego pola, asdasd"
-    },
-    {
-      "id": "e659",
-      "firstName": "asdasdasdasdasdasd",
-      "lastName": "adasdasdasdasd",
-      "email": "asdasdasdasdasdasdasda",
-      "value": 21500,
-      "details": "Silnik 1.5L benzynowy turbo, Silnik 2.0L diesel, Tapicerka materiałowa, Tapicerka skórzana, Nawigacja GPS, Alufelgi1, Relingi dachowe, Poduszki powietrzne, asdasd"
-    }
-  ]
+  "orders": []
 }

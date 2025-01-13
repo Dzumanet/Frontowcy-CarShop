@@ -5,7 +5,6 @@ import { categoriesOptions } from "../queries/categories.ts";
 
 export const Creator = () => {
     const router = useRouter();
-
     const { data: categoriesData } = useSuspenseQuery(categoriesOptions);
 
     useEffect(() => {

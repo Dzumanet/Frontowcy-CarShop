@@ -5,10 +5,11 @@ import { useDeleteOrderMutation } from "../../mutation/useDeleteOrderMutation.ts
 import { Delete as DeleteIcon } from "@mui/icons-material";
 import { ConfirmDialog } from "../../ui/ConfirmDialog.tsx";
 import { useState } from "react";
+import { CircularProgress } from "../../ui/CircularProgress.tsx";
 
 export const OrdersList = () => {
-    const {data: ordersData} = useSuspenseQuery(ordersOptions);
-    const {mutate: deleteOrder} = useDeleteOrderMutation();
+    const { data: ordersData } = useSuspenseQuery(ordersOptions);
+    const { mutate: deleteOrder, isPending } = useDeleteOrderMutation();
     const [dialogOpen, setDialogOpen] = useState(false);
 
     const handleDelete = (id: string) => {
@@ -17,7 +18,7 @@ export const OrdersList = () => {
                 setDialogOpen(false);
             }
         });
-    }
+    };
 
     const handleDialogOpen = () => {
         setDialogOpen(true);
@@ -26,6 +27,8 @@ export const OrdersList = () => {
     const handleDialogClose = () => {
         setDialogOpen(false);
     };
+
+    if (isPending) return <CircularProgress />;
 
     return (
         <Box sx={{ padding: 4 }}>
@@ -58,16 +61,16 @@ export const OrdersList = () => {
                                 </IconButton>
                             </CardContent>
                         </Card>
-                            <ConfirmDialog
-                                open={dialogOpen}
-                                onClose={handleDialogClose}
-                                onConfirm={() => handleDelete(order.id)}
-                                title="Confirm Deletion"
-                                description="Are you sure you want to delete this order? This action cannot be undone."
-                            />
+                        <ConfirmDialog
+                            open={dialogOpen}
+                            onClose={handleDialogClose}
+                            onConfirm={() => handleDelete(order.id)}
+                            title="Confirm Deletion"
+                            description="Are you sure you want to delete this order? This action cannot be undone."
+                        />
                     </Container>
                 ))}
             </Container>
         </Box>
-    )
+    );
 };
