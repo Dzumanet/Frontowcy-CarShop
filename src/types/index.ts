@@ -9,7 +9,6 @@ export type CategoryDTO = Omit<Category, 'id'>;
 
 export type CategoryWithParts =Category & {
     parts: Part[];
-
 }
 
 export type Part = {
@@ -17,7 +16,8 @@ export type Part = {
     name: string;
     price: number;
     partNameId: string;
-    categoryId: string;
+    categoryId: string
+    categoryIdentifier?: string;
 }
 
 export type PartDTO = Omit<Part, 'id'>;
