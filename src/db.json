@@ -29,6 +29,12 @@
       "name": "Bezpieczeństwo",
       "identifier": "safety",
       "position": 5
+    },
+    {
+      "name": "inna",
+      "identifier": "inna",
+      "position": "11",
+      "id": "9276"
     }
   ],
   "parts": [
@@ -54,7 +60,7 @@
       "id": "sder"
     },
     {
-      "name": "Czerwony metalik",
+      "name": "Czerwony metalik1",
       "price": 2000,
       "partNameId": "red-lak",
       "categoryId": "1",
@@ -143,7 +149,31 @@
       "price": 3000,
       "partNameId": "emergency-braking",
       "categoryId": "5"
+    },
+    {
+      "id": "c545",
+      "name": "asdasd",
+      "price": 0,
+      "partNameId": "asdasda",
+      "categoryId": "9276"
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "id": "fe18",
+      "firstName": "Frodo",
+      "lastName": "bagins",
+      "email": "frodo@frodo.pl",
+      "value": 22000,
+      "details": "Silnik 2.0L diesel, Tapicerka skórzana, Nawigacja GPS, System audio premium, System audio standardowy, Alufelgi1, System hamowania awaryjnego, Poduszki powietrzne, asdasd"
+    },
+    {
+      "id": "7ae0",
+      "firstName": "dfg",
+      "lastName": "dgf",
+      "email": "dfg",
+      "value": 14000,
+      "details": "Silnik 2.0L diesel, Czarny wystrój, System audio premium, Otwierany dach, Czujniki martwego pola, asdasd"
+    }
+  ]
 }
