@@ -21,7 +21,7 @@ import { Route as CategoryAddImport } from './routes/category/add'
 import { Route as CategoryIdentifierImport } from './routes/category/$identifier'
 import { Route as CategoryIdentifierEditImport } from './routes/category/$identifier.edit'
 import { Route as CategoryIdentifierPartAddImport } from './routes/category/$identifier.part.add'
-import { Route as CategoryIdentifierPartPartIdEditImport } from './routes/category/$identifier.part.$partId.edit'
+import { Route as CategoryIdentifierPartPartNameIdEditImport } from './routes/category/$identifier.part.$partNameId.edit'
 
 // Create/Update Routes
 
@@ -85,10 +85,10 @@ const CategoryIdentifierPartAddRoute = CategoryIdentifierPartAddImport.update({
   getParentRoute: () => CategoryIdentifierRoute,
 } as any)
 
-const CategoryIdentifierPartPartIdEditRoute =
-  CategoryIdentifierPartPartIdEditImport.update({
-    id: '/part/$partId/edit',
-    path: '/part/$partId/edit',
+const CategoryIdentifierPartPartNameIdEditRoute =
+  CategoryIdentifierPartPartNameIdEditImport.update({
+    id: '/part/$partNameId/edit',
+    path: '/part/$partNameId/edit',
     getParentRoute: () => CategoryIdentifierRoute,
   } as any)
 
@@ -166,11 +166,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CategoryIdentifierPartAddImport
       parentRoute: typeof CategoryIdentifierImport
     }
-    '/category/$identifier/part/$partId/edit': {
-      id: '/category/$identifier/part/$partId/edit'
-      path: '/part/$partId/edit'
-      fullPath: '/category/$identifier/part/$partId/edit'
-      preLoaderRoute: typeof CategoryIdentifierPartPartIdEditImport
+    '/category/$identifier/part/$partNameId/edit': {
+      id: '/category/$identifier/part/$partNameId/edit'
+      path: '/part/$partNameId/edit'
+      fullPath: '/category/$identifier/part/$partNameId/edit'
+      preLoaderRoute: typeof CategoryIdentifierPartPartNameIdEditImport
       parentRoute: typeof CategoryIdentifierImport
     }
   }
@@ -181,13 +181,14 @@ declare module '@tanstack/react-router' {
 interface CategoryIdentifierRouteChildren {
   CategoryIdentifierEditRoute: typeof CategoryIdentifierEditRoute
   CategoryIdentifierPartAddRoute: typeof CategoryIdentifierPartAddRoute
-  CategoryIdentifierPartPartIdEditRoute: typeof CategoryIdentifierPartPartIdEditRoute
+  CategoryIdentifierPartPartNameIdEditRoute: typeof CategoryIdentifierPartPartNameIdEditRoute
 }
 
 const CategoryIdentifierRouteChildren: CategoryIdentifierRouteChildren = {
   CategoryIdentifierEditRoute: CategoryIdentifierEditRoute,
   CategoryIdentifierPartAddRoute: CategoryIdentifierPartAddRoute,
-  CategoryIdentifierPartPartIdEditRoute: CategoryIdentifierPartPartIdEditRoute,
+  CategoryIdentifierPartPartNameIdEditRoute:
+    CategoryIdentifierPartPartNameIdEditRoute,
 }
 
 const CategoryIdentifierRouteWithChildren =
@@ -204,7 +205,7 @@ export interface FileRoutesByFullPath {
   '/orders': typeof OrdersIndexRoute
   '/category/$identifier/edit': typeof CategoryIdentifierEditRoute
   '/category/$identifier/part/add': typeof CategoryIdentifierPartAddRoute
-  '/category/$identifier/part/$partId/edit': typeof CategoryIdentifierPartPartIdEditRoute
+  '/category/$identifier/part/$partNameId/edit': typeof CategoryIdentifierPartPartNameIdEditRoute
 }
 
 export interface FileRoutesByTo {
@@ -218,7 +219,7 @@ export interface FileRoutesByTo {
   '/orders': typeof OrdersIndexRoute
   '/category/$identifier/edit': typeof CategoryIdentifierEditRoute
   '/category/$identifier/part/add': typeof CategoryIdentifierPartAddRoute
-  '/category/$identifier/part/$partId/edit': typeof CategoryIdentifierPartPartIdEditRoute
+  '/category/$identifier/part/$partNameId/edit': typeof CategoryIdentifierPartPartNameIdEditRoute
 }
 
 export interface FileRoutesById {
@@ -233,7 +234,7 @@ export interface FileRoutesById {
   '/orders/': typeof OrdersIndexRoute
   '/category/$identifier/edit': typeof CategoryIdentifierEditRoute
   '/category/$identifier/part/add': typeof CategoryIdentifierPartAddRoute
-  '/category/$identifier/part/$partId/edit': typeof CategoryIdentifierPartPartIdEditRoute
+  '/category/$identifier/part/$partNameId/edit': typeof CategoryIdentifierPartPartNameIdEditRoute
 }
 
 export interface FileRouteTypes {
@@ -249,7 +250,7 @@ export interface FileRouteTypes {
     | '/orders'
     | '/category/$identifier/edit'
     | '/category/$identifier/part/add'
-    | '/category/$identifier/part/$partId/edit'
+    | '/category/$identifier/part/$partNameId/edit'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -262,7 +263,7 @@ export interface FileRouteTypes {
     | '/orders'
     | '/category/$identifier/edit'
     | '/category/$identifier/part/add'
-    | '/category/$identifier/part/$partId/edit'
+    | '/category/$identifier/part/$partNameId/edit'
   id:
     | '__root__'
     | '/'
@@ -275,7 +276,7 @@ export interface FileRouteTypes {
     | '/orders/'
     | '/category/$identifier/edit'
     | '/category/$identifier/part/add'
-    | '/category/$identifier/part/$partId/edit'
+    | '/category/$identifier/part/$partNameId/edit'
   fileRoutesById: FileRoutesById
 }
 
@@ -329,7 +330,7 @@ export const routeTree = rootRoute
       "children": [
         "/category/$identifier/edit",
         "/category/$identifier/part/add",
-        "/category/$identifier/part/$partId/edit"
+        "/category/$identifier/part/$partNameId/edit"
       ]
     },
     "/category/add": {
@@ -358,8 +359,8 @@ export const routeTree = rootRoute
       "filePath": "category/$identifier.part.add.tsx",
       "parent": "/category/$identifier"
     },
-    "/category/$identifier/part/$partId/edit": {
-      "filePath": "category/$identifier.part.$partId.edit.tsx",
+    "/category/$identifier/part/$partNameId/edit": {
+      "filePath": "category/$identifier.part.$partNameId.edit.tsx",
       "parent": "/category/$identifier"
     }
   }

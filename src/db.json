@@ -29,12 +29,6 @@
       "name": "Bezpieczeństwo",
       "identifier": "safety",
       "position": 5
-    },
-    {
-      "name": "inna",
-      "identifier": "inna",
-      "position": "11",
-      "id": "9276"
     }
   ],
   "parts": [
@@ -155,7 +149,7 @@
       "name": "asdasd",
       "price": 0,
       "partNameId": "asdasda",
-      "categoryId": "9276"
+      "categoryId": null
     }
   ],
   "orders": [
@@ -174,6 +168,14 @@
       "email": "dfg",
       "value": 14000,
       "details": "Silnik 2.0L diesel, Czarny wystrój, System audio premium, Otwierany dach, Czujniki martwego pola, asdasd"
+    },
+    {
+      "id": "e659",
+      "firstName": "asdasdasdasdasdasd",
+      "lastName": "adasdasdasdasd",
+      "email": "asdasdasdasdasdasdasda",
+      "value": 21500,
+      "details": "Silnik 1.5L benzynowy turbo, Silnik 2.0L diesel, Tapicerka materiałowa, Tapicerka skórzana, Nawigacja GPS, Alufelgi1, Relingi dachowe, Poduszki powietrzne, asdasd"
     }
   ]
 }
