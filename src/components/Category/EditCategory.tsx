@@ -31,12 +31,16 @@ export const EditCategory = () => {
     };
 
     const onSubmit = (data: CategoryDTO) => {
-        updateCategory({ ...data }, {
-            onSuccess: () => {
-                setOpen(false);
-                navigate({ to: `/category/${identifier}` });
-            }
-        });
+        updateCategory({
+                ...data,
+                position: Number(data.position)
+            },
+            {
+                onSuccess: () => {
+                    setOpen(false);
+                    navigate({ to: `/category/${identifier}` });
+                }
+            });
     };
 
     const handleClose = () => {
@@ -69,6 +73,7 @@ export const EditCategory = () => {
             }}
                           onSubmit={onSubmit} label="Save"
                           onDelete={handleDialogOpen}
+                          isEdit={true}
             />
             <ConfirmDialog
                 open={dialogOpen}

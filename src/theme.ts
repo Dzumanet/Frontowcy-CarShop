@@ -49,7 +49,26 @@ export const theme = createTheme({
         MuiStack: {
             defaultProps: {
                 useFlexGap: true,
-            }
-        }
+            },
+        },
+        MuiTextField: {
+            styleOverrides: {
+                root: {
+                    '& .Mui-error': {
+                        color: '#d32f2f',
+                        borderColor: '#d32f2f',
+                    },
+                },
+            },
+        },
+        MuiFormHelperText: {
+            styleOverrides: {
+                root: {
+                    '&.Mui-error': {
+                        color: '#d32f2f',
+                    },
+                },
+            },
+        },
     },
 });

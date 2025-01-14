@@ -1,10 +1,10 @@
 {
   "categories": [
     {
-      "id": "2",
       "name": "Wyposażenie wnętrza",
       "identifier": "interior",
-      "position": 2
+      "position": 2,
+      "id": "2"
     },
     {
       "id": "3",
@@ -15,7 +15,7 @@
     {
       "name": "Dodatki zewnętrzne",
       "identifier": "exterior",
-      "position": "1",
+      "position": 4,
       "id": "4"
     },
     {
@@ -25,17 +25,17 @@
       "position": 5
     },
     {
-      "id": "1",
       "name": "Podtstawowe",
       "identifier": "basic",
-      "position": "1"
+      "position": 1,
+      "id": "1"
     }
   ],
   "parts": [
     {
       "name": "Silnik 1.5L benzynowy turbo",
       "price": 5000,
-      "partNameId": "fdse",
+      "partNameId": "engine-1.5",
       "categoryId": "1",
       "id": "fdse"
     },
@@ -145,5 +145,14 @@
       "categoryId": "5"
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "id": "fb98",
+      "firstName": "sdfs",
+      "lastName": "sdfsdf",
+      "email": "sdfsdf",
+      "value": 17500,
+      "details": "Silnik 2.0L diesel, Tapicerka skórzana, Nawigacja GPS, Otwierany dach, Poduszki powietrzne, Czujniki martwego pola"
+    }
+  ]
 }

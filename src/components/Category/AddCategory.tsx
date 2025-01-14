@@ -6,11 +6,18 @@ import { CategoryDTO } from "../../types";
 import { useCreateCategoryMutation } from "../../mutation/useCreateCategoryMutation.ts";
 import { Modal } from "../../ui/Modal.tsx";
 import { CircularProgress } from "../../ui/CircularProgress.tsx";
+import { getAvailablePositions } from "../../utils/getAvailablePositions.ts";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { categoriesOptions } from "../../queries/categories.ts";
+
 
 export const AddCategory = () => {
     const navigate = useNavigate();
     const { mutate: createCategory, isPending } = useCreateCategoryMutation();
     const [open, setOpen] = useState(true);
+    const { data: categoriesData } = useSuspenseQuery(categoriesOptions);
+
+    const { firstAvailablePosition } = getAvailablePositions(categoriesData);
 
     const handleClose = () => {
         setOpen(false);
@@ -18,14 +25,19 @@ export const AddCategory = () => {
     };
 
     const onSubmit = (data: CategoryDTO) => {
-        createCategory(data, {
-            onSuccess: () => {
-                navigate({ to: '/category' });
+        createCategory(
+            {
+                ...data,
+                position: Number(data.position)
             },
-        });
+            {
+                onSuccess: () => {
+                    navigate({ to: '/category' });
+                },
+            });
     };
 
-    if (isPending) return <CircularProgress />
+    if (isPending) return <CircularProgress />;
 
     return (
         <Modal
@@ -37,12 +49,12 @@ export const AddCategory = () => {
                 defaultValues={{
                     name: '',
                     identifier: '',
-                    position: 0,
+                    position: firstAvailablePosition,
                 }}
                 onSubmit={onSubmit}
                 label="Add Category"
+                isEdit={false}
             />
         </Modal>
-
     );
 };

@@ -7,10 +7,11 @@ import { TextField } from "@mui/material";
 type InputProps = {
     label: string;
     type: "text" | "number";
-    error?: FieldError;
+    error?: FieldError | boolean;
+    helperText?: string;
 }
 
-export const Input = forwardRef<HTMLInputElement, InputProps & UseFormRegisterReturn>(({ label, type, error, ...register }, ref) => {
+export const Input = forwardRef<HTMLInputElement, InputProps & UseFormRegisterReturn>(({ label, type, error, helperText, ...register }, ref) => {
 
     return (
         <div>
@@ -20,8 +21,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps & UseFormRegisterRe
                 label={label}
                 type={type}
                 error={!!error}
-                helperText={error?.message}
-                ref={ref} {...register}/>
+                helperText={helperText || (typeof error === "object" ? error.message : undefined)}
+                inputRef={ref}
+                {...register}/>
 
         </div>
     )
