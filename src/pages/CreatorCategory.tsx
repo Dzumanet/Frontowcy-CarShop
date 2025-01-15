@@ -55,16 +55,19 @@ export const CreatorCategory = () => {
 
 
     return (
+
         <Box sx={{ maxWidth: '1200px', margin: '0 auto', padding: 2 }}>
-            <Typography variant="h4" component="h1" gutterBottom>
+            <Typography variant="h4" component="h1" gutterBottom align="center">
                 {categoryData?.name || 'Loading...'}
             </Typography>
             <OrderValue />
-            <CategoryStepper
-                steps={[...sortedCategories.map((cat) => cat.name), 'Summary']}
-                currentStep={currentIndex < sortedCategories.length ? currentIndex : sortedCategories.length}
-            />
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', marginBottom: 2 }}>
+            <Box sx={{ marginBottom: 4 }}>
+                <CategoryStepper
+                    steps={[...sortedCategories.map((cat) => cat.name), 'Summary']}
+                    currentStep={currentIndex < sortedCategories.length ? currentIndex : sortedCategories.length}
+                />
+            </Box>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
                 <Button
                     variant="contained"
                     onClick={() =>
@@ -77,6 +80,13 @@ export const CreatorCategory = () => {
                 </Button>
                 <Button
                     variant="contained"
+                    sx={{
+                        backgroundColor: nextCategory ? 'primary.main' : '#ff5722',
+                        '&:hover': {
+                            backgroundColor: nextCategory ? 'primary.dark' : '#e64a19',
+                        },
+                        color: nextCategory ? 'inherit' : '#ffffff',
+                    }}
                     onClick={() =>
                         nextCategory
                             ? navigate({ to: `/creator/${nextCategory.identifier}` })
@@ -90,42 +100,65 @@ export const CreatorCategory = () => {
 
             <Box
                 sx={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    gap: 2,
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                    gap: 3,
                 }}
             >
                 {categoryData?.parts?.map((part) => (
-                    <Box
+                    <Card
                         key={part.id}
                         sx={{
-                            flex: '1 1 calc(25% - 16px)',
-                            maxWidth: 'calc(25% - 16px)',
-                            cursor: 'pointer',
-                            border: isSelected(part.id) ? '4px solid green' : '1px solid gray',
+                            border: isSelected(part.id) ? '2px solid green' : '1px solid #ccc',
+                            borderRadius: 2,
+                            transition: 'transform 0.2s, box-shadow 0.2s',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'space-between',
+                            height: '150px',
                             '&:hover': {
-                                boxShadow: 6,
+                                transform: 'translateY(-4px)',
+                                boxShadow: '0px 6px 16px rgba(0, 0, 0, 0.2)',
                             },
+                            cursor: 'pointer',
+                            backgroundColor: isSelected(part.id) ? '#eaffea' : '#fff',
                         }}
                         onClick={() => togglePartSelection(part)}
                     >
-                        <Card>
-                            <CardContent>
-                                <Typography gutterBottom variant="h5" component="div">
-                                    {part.name}
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    ID: {part.id}
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    Category: {part.categoryId}
-                                </Typography>
-                                <Typography variant="h6" color="text.primary">
-                                    Price: {part.price} zł
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Box>
+                        <CardContent
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'space-between',
+                                flexGrow: 1,
+                            }}
+                        >
+                            <Typography
+                                gutterBottom
+                                variant="h6"
+                                component="div"
+                                sx={{
+                                    textAlign: 'center',
+                                    fontWeight: 'bold',
+                                    color: isSelected(part.id) ? 'green' : 'inherit',
+                                    marginBottom: 'auto',
+                                }}
+                            >
+                                {part.name}
+                            </Typography>
+                            <Typography
+                                variant="h6"
+                                color="text.primary"
+                                sx={{
+                                    textAlign: 'center',
+                                    fontSize: '1rem',
+                                    marginTop: 'auto',
+                                }}
+                            >
+                                Price: {part.price} zł
+                            </Typography>
+                        </CardContent>
+                    </Card>
                 ))}
             </Box>
         </Box>

@@ -62,25 +62,27 @@ export const EditCategory = () => {
 
     return (
         <Modal
-            label="Edit category"
+            label="Edit Category"
             open={open}
             onClose={handleClose}
         >
-            <CategoryForm defaultValues={{
-                name: categoryData.name,
-                identifier: categoryData.identifier,
-                position: categoryData.position
-            }}
-                          onSubmit={onSubmit} label="Save"
-                          onDelete={handleDialogOpen}
-                          isEdit={true}
+            <CategoryForm
+                defaultValues={{
+                    name: categoryData.name,
+                    identifier: categoryData.identifier,
+                    position: categoryData.position,
+                }}
+                onSubmit={onSubmit}
+                label="Save"
+                onDelete={handleDialogOpen}
+                isEdit={true}
             />
             <ConfirmDialog
                 open={dialogOpen}
                 onClose={handleDialogClose}
                 onConfirm={() => handleDelete(categoryData.id)}
                 title="Confirm Deletion"
-                description="Are you sure you want to delete this category? This action cannot be undone."
+                description="Are you sure you want to delete this category? This action cannot be undone. All parts associated with this category will also be deleted."
             />
         </Modal>
     );

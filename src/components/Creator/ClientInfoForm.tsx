@@ -1,7 +1,5 @@
-import { Button, Container } from "@mui/material";
+import { Box, Button, FormControl, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
-import { Input } from "../../ui/Input.tsx";
-import { ButtonWrapper } from "../../ui/ButtonWrapper.tsx";
 import { OrderDTO } from "../../types";
 
 type ClientInfoFormProps = {
@@ -11,24 +9,82 @@ type ClientInfoFormProps = {
 
 
 export const ClientInfoForm = ({ defaultValues, onSubmit }: ClientInfoFormProps) => {
-    const { register, handleSubmit } = useForm<OrderDTO>({ defaultValues });
+    const { register, handleSubmit, formState: { errors } } = useForm<OrderDTO>({ defaultValues });
 
     return (
-        <Container>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <div>
-                    <Input type="text" label="First Name" {...register('firstName')} required />
-                </div>
-                <div>
-                    <Input type="text" label="Last Name" {...register('lastName')} required />
-                </div>
-                <div>
-                    <Input type="text" label="E-mail" {...register('email')} required />
-                </div>
-                <ButtonWrapper>
-                    <Button variant="outlined" type="submit">Save order</Button>
-                </ButtonWrapper>
-            </form>
-        </Container>
+        <Box
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 3,
+                maxWidth: 800,
+                margin: '0 auto',
+                marginBottom: 3,
+            }}
+        >
+            <Box
+                component="form"
+                onSubmit={handleSubmit(onSubmit)}
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 3,
+                }}
+            >
+                <Box
+                    sx={{
+                        display: 'flex',
+                        gap: 3,
+                    }}
+                >
+                    <FormControl sx={{ flex: 1 }}>
+                        <TextField
+                            label="First Name"
+                            {...register('firstName', { required: 'First Name is required' })}
+                            error={!!errors.firstName}
+                            helperText={errors.firstName?.message}
+                            variant="outlined"
+                            fullWidth
+                        />
+                    </FormControl>
+                    <FormControl sx={{ flex: 1 }}>
+                        <TextField
+                            label="Last Name"
+                            {...register('lastName', { required: 'Last Name is required' })}
+                            error={!!errors.lastName}
+                            helperText={errors.lastName?.message}
+                            variant="outlined"
+                            fullWidth
+                        />
+                    </FormControl>
+                    <FormControl sx={{ flex: 1 }}>
+                        <TextField
+                            label="E-mail"
+                            {...register('email', { required: 'E-mail is required' })}
+                            error={!!errors.email}
+                            helperText={errors.email?.message}
+                            variant="outlined"
+                            fullWidth
+                        />
+                    </FormControl>
+                </Box>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                    }}
+                >
+                    <Button
+                        variant="contained"
+                        type="submit"
+                        sx={{
+                            width: 200,
+                        }}
+                    >
+                        Save order
+                    </Button>
+                </Box>
+            </Box>
+        </Box>
     );
 };

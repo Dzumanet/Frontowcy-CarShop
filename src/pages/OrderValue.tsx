@@ -1,12 +1,12 @@
 import { useCreatorStore } from "../store/useCreatorStore.ts";
-import { Container } from "@mui/material";
+import { Typography } from "@mui/material";
 
 export const OrderValue = () => {
     const {order} = useCreatorStore()
 
     return (
-        <Container>
-            <h2>Total price for order: {order.totalPrice}</h2>
-        </Container>
+        <Typography variant="h5" color="primary" align="center" sx={{ marginBottom: 2 }}>
+            Total price for order: {order.totalPrice} zł
+        </Typography>
     )
 };

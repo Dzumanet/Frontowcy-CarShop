@@ -4,7 +4,9 @@ import { CircularProgress as MUICircularProgress, Container } from "@mui/materia
 export const CircularProgress = () => {
     return (
         <Container style={{
-            margin: '0 auto',
+            position: "absolute",
+            top: "50%",
+            left: "50%",
         }}>
             <MUICircularProgress />
         </Container>
