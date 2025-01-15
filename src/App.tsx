@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createRouter, RouterProvider } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen.ts";
-import { Container, ThemeProvider } from "@mui/material";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import { theme } from "./theme.ts";
 
 const router = createRouter({
@@ -23,11 +23,10 @@ const queryClient = new QueryClient;
 export const App = () => {
     return (
         <ThemeProvider theme={theme}>
-            <Container>
-        <QueryClientProvider client={queryClient}>
-            <RouterProvider router={router} context={{ queryClient }} />
-        </QueryClientProvider>
-            </Container>
+            <CssBaseline />
+            <QueryClientProvider client={queryClient}>
+                <RouterProvider router={router} context={{ queryClient }} />
+            </QueryClientProvider>
         </ThemeProvider>
     );
 };

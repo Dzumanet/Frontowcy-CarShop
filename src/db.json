@@ -1,158 +1,253 @@
 {
   "categories": [
     {
-      "name": "Wyposażenie wnętrza",
-      "identifier": "interior",
-      "position": 2,
-      "id": "2"
+      "id": "b8f1",
+      "name": "Basic Features",
+      "identifier": "basic",
+      "position": 1
     },
     {
-      "id": "3",
-      "name": "Technologie",
+      "id": "a7c3",
+      "name": "Interior Equipment",
+      "identifier": "interior",
+      "position": 2
+    },
+    {
+      "id": "c9d5",
+      "name": "Technology",
       "identifier": "technology",
       "position": 3
     },
     {
-      "name": "Dodatki zewnętrzne",
+      "id": "d6e2",
+      "name": "Exterior Add-ons",
       "identifier": "exterior",
-      "position": 4,
-      "id": "4"
+      "position": 4
     },
     {
-      "id": "5",
-      "name": "Bezpieczeństwo",
+      "id": "f3a4",
+      "name": "Safety",
       "identifier": "safety",
       "position": 5
-    },
-    {
-      "name": "Podtstawowe",
-      "identifier": "basic",
-      "position": 1,
-      "id": "1"
     }
   ],
   "parts": [
     {
-      "name": "Silnik 1.5L benzynowy turbo",
+      "id": "e2b7",
+      "name": "1.5L Petrol Turbo Engine",
       "price": 5000,
       "partNameId": "engine-1.5",
-      "categoryId": "1",
-      "id": "fdse"
+      "categoryId": "b8f1"
     },
     {
-      "id": "fdsr",
-      "name": "Silnik 2.0L diesel",
+      "id": "d4a8",
+      "name": "2.0L Diesel Engine",
       "price": 8000,
-      "partNameId": "engine-2.0L",
-      "categoryId": "1"
+      "partNameId": "engine-2.0",
+      "categoryId": "b8f1"
     },
     {
-      "name": "Czarny Mat",
+      "id": "f5c9",
+      "name": "Standard Paint - Black Matte",
       "price": 0,
-      "partNameId": "black-mat",
-      "categoryId": "1",
-      "id": "sder"
+      "partNameId": "paint-black-matte",
+      "categoryId": "b8f1"
     },
     {
-      "name": "Czerwony metalik1",
+      "id": "a3d1",
+      "name": "Metallic Red Paint",
       "price": 2000,
-      "partNameId": "red-lak",
-      "categoryId": "1",
-      "id": "lek4"
+      "partNameId": "paint-metallic-red",
+      "categoryId": "b8f1"
     },
     {
-      "id": "5",
-      "name": "Tapicerka materiałowa",
+      "id": "b2e3",
+      "name": "Standard Wheels",
       "price": 0,
-      "partNameId": "fabric-upholstery",
-      "categoryId": "2"
+      "partNameId": "wheels-standard",
+      "categoryId": "b8f1"
     },
     {
-      "id": "6",
-      "name": "Tapicerka skórzana",
+      "id": "c1a6",
+      "name": "Fabric Upholstery",
+      "price": 0,
+      "partNameId": "upholstery-fabric",
+      "categoryId": "a7c3"
+    },
+    {
+      "id": "d7f4",
+      "name": "Leather Upholstery",
       "price": 4000,
-      "partNameId": "leather-upholstery",
-      "categoryId": "2"
+      "partNameId": "upholstery-leather",
+      "categoryId": "a7c3"
     },
     {
-      "id": "7",
-      "name": "Czarny wystrój",
+      "id": "e5d2",
+      "name": "Interior Trim - Black",
       "price": 0,
-      "partNameId": "interior-black",
-      "categoryId": "2"
+      "partNameId": "interior-trim-black",
+      "categoryId": "a7c3"
     },
     {
-      "id": "8",
-      "name": "System audio standardowy",
+      "id": "f8a9",
+      "name": "Interior Trim - Beige",
+      "price": 0,
+      "partNameId": "interior-trim-beige",
+      "categoryId": "a7c3"
+    },
+    {
+      "id": "a9b3",
+      "name": "Wood Grain Trim",
+      "price": 2000,
+      "partNameId": "interior-trim-wood-grain",
+      "categoryId": "a7c3"
+    },
+    {
+      "id": "b4c7",
+      "name": "Standard Audio System",
       "price": 0,
       "partNameId": "audio-standard",
-      "categoryId": "3"
+      "categoryId": "c9d5"
     },
     {
-      "name": "System audio premium",
+      "id": "c3e9",
+      "name": "Premium Audio System",
       "price": 3000,
-      "partNameId": "9",
-      "categoryId": "3",
-      "id": "9"
+      "partNameId": "audio-premium",
+      "categoryId": "c9d5"
     },
     {
-      "id": "10",
-      "name": "Nawigacja GPS",
+      "id": "d2f5",
+      "name": "GPS Navigation System",
       "price": 2500,
       "partNameId": "gps-navigation",
-      "categoryId": "3"
+      "categoryId": "c9d5"
     },
     {
-      "id": "11",
-      "name": "Otwierany dach",
+      "id": "e7a4",
+      "name": "Wireless Charging",
+      "price": 1500,
+      "partNameId": "wireless-charging",
+      "categoryId": "c9d5"
+    },
+    {
+      "id": "f1b6",
+      "name": "Heads-Up Display",
+      "price": 2000,
+      "partNameId": "heads-up-display",
+      "categoryId": "c9d5"
+    },
+    {
+      "id": "a5d8",
+      "name": "Sunroof",
       "price": 1000,
-      "partNameId": "opening-roof",
-      "categoryId": "4"
+      "partNameId": "sunroof",
+      "categoryId": "d6e2"
     },
     {
-      "id": "12",
-      "name": "Relingi dachowe",
+      "id": "b6e1",
+      "name": "Roof Rails",
       "price": 500,
       "partNameId": "roof-rails",
-      "categoryId": "4"
+      "categoryId": "d6e2"
     },
     {
-      "name": "Alufelgi1",
+      "id": "c2f7",
+      "name": "Alloy Wheels",
       "price": 1500,
-      "partNameId": "13",
-      "categoryId": "4",
-      "id": "13"
+      "partNameId": "alloy-wheels",
+      "categoryId": "d6e2"
     },
     {
-      "id": "14",
-      "name": "Czujniki martwego pola",
+      "id": "d5a3",
+      "name": "Rear Spoiler",
+      "price": 1200,
+      "partNameId": "rear-spoiler",
+      "categoryId": "d6e2"
+    },
+    {
+      "id": "e8b9",
+      "name": "Tinted Windows",
+      "price": 800,
+      "partNameId": "tinted-windows",
+      "categoryId": "d6e2"
+    },
+    {
+      "id": "f3c4",
+      "name": "Blind Spot Sensors",
       "price": 2000,
       "partNameId": "blind-spot-sensors",
-      "categoryId": "5"
+      "categoryId": "f3a4"
     },
     {
-      "id": "15",
-      "name": "Poduszki powietrzne",
+      "id": "a7d5",
+      "name": "Airbags",
       "price": 0,
       "partNameId": "airbags",
-      "categoryId": "5"
+      "categoryId": "f3a4"
     },
     {
-      "id": "16",
-      "name": "System hamowania awaryjnego",
+      "id": "b9e2",
+      "name": "Emergency Braking System",
       "price": 3000,
       "partNameId": "emergency-braking",
-      "categoryId": "5"
+      "categoryId": "f3a4"
+    },
+    {
+      "id": "c6f8",
+      "name": "Rear Parking Sensors",
+      "price": 1000,
+      "partNameId": "rear-parking-sensors",
+      "categoryId": "f3a4"
+    },
+    {
+      "id": "d8a9",
+      "name": "Lane Keep Assist",
+      "price": 2500,
+      "partNameId": "lane-keep-assist",
+      "categoryId": "f3a4"
     }
   ],
   "orders": [
     {
-      "id": "fb98",
-      "firstName": "sdfs",
-      "lastName": "sdfsdf",
-      "email": "sdfsdf",
-      "value": 17500,
-      "details": "Silnik 2.0L diesel, Tapicerka skórzana, Nawigacja GPS, Otwierany dach, Poduszki powietrzne, Czujniki martwego pola"
+      "id": "c9b4",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "John@gmail.com",
+      "value": 16000,
+      "details": "Interior Trim - Black, 2.0L Diesel Engine, Premium Audio System, Standard Audio System, Alloy Wheels, Roof Rails, Emergency Braking System, Airbags"
+    },
+    {
+      "id": "c9b3",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "John@gmail.com",
+      "value": 16000,
+      "details": "Interior Trim - Black, 2.0L Diesel Engine, Premium Audio System, Standard Audio System, Alloy Wheels, Roof Rails, Emergency Braking System, Airbags"
+    },
+    {
+      "id": "c9b5",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "John@gmail.com",
+      "value": 16000,
+      "details": "Interior Trim - Black, 2.0L Diesel Engine, Premium Audio System, Standard Audio System, Alloy Wheels, Roof Rails, Emergency Braking System, Airbags"
+    },
+    {
+      "id": "c9b6",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "John@gmail.com",
+      "value": 16000,
+      "details": "Interior Trim - Black, 2.0L Diesel Engine, Premium Audio System, Standard Audio System, Alloy Wheels, Roof Rails, Emergency Braking System, Airbags"
+    },
+    {
+      "id": "c9b7",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "John@gmail.com",
+      "value": 16000,
+      "details": "Interior Trim - Black, 2.0L Diesel Engine, Premium Audio System, Standard Audio System, Alloy Wheels, Roof Rails, Emergency Braking System, Airbags"
     }
   ]
 }
