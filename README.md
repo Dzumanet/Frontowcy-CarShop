@@ -33,10 +33,39 @@ Frontowcy-CarShop is a web application designed as part of the **Frontowcy cours
 ### Development Tools
 - **TypeScript**: Ensures type safety and improved developer experience.
 - **ESLint**: Linting to maintain consistent code quality.
+- **Husky**: Pre-commit hooks to automate code formatting and quality checks.
 - **Vite**: Fast and efficient build tool.
 
 ## Screenshots
+![image](https://github.com/user-attachments/assets/30bc4b69-d697-4233-a46a-04181f26531e)
 
+![image](https://github.com/user-attachments/assets/b7df4659-7146-486a-904f-fd9310988aee)
+
+![image](https://github.com/user-attachments/assets/7d68f2c2-fc94-48c3-94bc-83a021108b48)
+
+![image](https://github.com/user-attachments/assets/22e31b83-a31c-4119-a742-2eb85434565e)
+
+![image](https://github.com/user-attachments/assets/692e4c25-ad89-4bb4-b1be-8a83f8da1a93)
+
+![image](https://github.com/user-attachments/assets/f02e37af-2809-4fb2-817f-892728344a69)
+
+![image](https://github.com/user-attachments/assets/7f438bbf-01f0-4d97-b7fb-70d517478c16)
+
+![image](https://github.com/user-attachments/assets/44108c73-a191-4da3-82d1-0814ad53d68d)
+
+![image](https://github.com/user-attachments/assets/459d0404-9e7d-4eaa-b0cb-f91c74f049ea)
+
+![image](https://github.com/user-attachments/assets/365e83ce-8b15-493d-b013-bfa436e7e333)
+
+![image](https://github.com/user-attachments/assets/275e8197-2195-40dc-9f31-8f88b8159389)
+
+![image](https://github.com/user-attachments/assets/001bf888-7ee0-4dab-ac77-a2c5aeaaf049)
+
+![image](https://github.com/user-attachments/assets/1fc35329-eb5e-4df9-83db-c2a453c76bd9)
+
+![image](https://github.com/user-attachments/assets/08826a4b-0478-490a-b602-57adf74ba64f)
+
+![image](https://github.com/user-attachments/assets/40ff6bb1-82b8-45f8-b128-a2e4bde73b2c)
 
 
 ## Installation and Setup
@@ -66,46 +95,9 @@ Frontowcy-CarShop is a web application designed as part of the **Frontowcy cours
 
 ## Dependencies
 
-### Core Dependencies
-```json
-"dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
-    "@mui/icons-material": "^6.3.1",
-    "@mui/material": "^6.3.0",
-    "@tanstack/react-query": "^5.62.11",
-    "@tanstack/react-router": "^1.92.9",
-    "json-server": "^1.0.0-beta.3",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-hook-form": "^7.54.2",
-    "zustand": "^5.0.2"
-}
-```
 
-### Development Dependencies
-```json
-"devDependencies": {
-    "@eslint/js": "^9.17.0",
-    "@tanstack/router-devtools": "^1.92.9",
-    "@tanstack/router-plugin": "^1.91.1",
-    "@types/react": "^18.3.18",
-    "@types/react-dom": "^18.3.5",
-    "@vitejs/plugin-react-swc": "^3.5.0",
-    "eslint": "^9.17.0",
-    "eslint-plugin-react-hooks": "^5.0.0",
-    "eslint-plugin-react-refresh": "^0.4.16",
-    "globals": "^15.14.0",
-    "typescript": "~5.6.2",
-    "typescript-eslint": "^8.18.2",
-    "vite": "^6.0.5"
-}
-```
 
 ## Project Structure
 - **`src/`**: Contains all the application code.
 - **`public/`**: Static assets.
 - **`db.json`**: Mock database for JSON Server.
-
-
-[Add screenshots here]
