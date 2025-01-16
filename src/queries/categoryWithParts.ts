@@ -7,7 +7,7 @@ export const categoryWithPartsOptions = (id: string) => queryOptions({
     queryFn: async () => {
         try {
             return await apiCall<CategoryWithParts>(`categories/${id}?_embed=parts`);
-        } catch (error) {
+        } catch {
             throw new Error(`Failed to fetch category with parts for ID "${id}"`);
         }
     },

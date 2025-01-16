@@ -8,7 +8,7 @@ export const Route = createFileRoute('/orders/')({
         const { queryClient } = context;
         try {
             return await queryClient.ensureQueryData(ordersOptions);
-        } catch (error) {
+        } catch {
             throw new Error('Could not load orders.');
         }
     }

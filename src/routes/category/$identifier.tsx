@@ -22,7 +22,7 @@ export const Route = createFileRoute('/category/$identifier')({
 
             return { category: categoryData };
 
-        } catch (error) {
+        } catch {
             throw new Error(`Could not load data for category "${identifier}"`);
         }
     }

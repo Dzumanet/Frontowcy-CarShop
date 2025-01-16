@@ -9,7 +9,7 @@ export const Route = createFileRoute('/category/$identifier/edit')({
         const { identifier } = params;
         try {
             return await queryClient.ensureQueryData(categoryOptions(identifier));
-        } catch (error) {
+        } catch {
             throw new Error(`Failed to load category for identifier "${identifier}"`);
         }
     },

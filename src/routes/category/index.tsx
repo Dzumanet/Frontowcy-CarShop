@@ -8,7 +8,7 @@ export const Route = createFileRoute('/category/')({
         const { queryClient } = context;
         try {
             return await queryClient.ensureQueryData(categoriesOptions);
-        } catch (error) {
+        } catch {
             throw new Error('Could not load categories.');
         }
     }

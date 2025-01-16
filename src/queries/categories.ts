@@ -8,6 +8,7 @@ export const categoriesOptions = queryOptions({
         try {
             return await apiCall<Category[]>('categories');
         } catch (error) {
+            console.error('Error fetching categories:', error);
             throw new Error('Failed to fetch categories!');
         }
     },

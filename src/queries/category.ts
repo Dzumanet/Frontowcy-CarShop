@@ -11,7 +11,7 @@ export const categoryOptions = (identifier: string) => queryOptions({
                 throw new Error(`No category found for identifier: "${identifier}"`);
             }
             return response[0];
-        } catch (error) {
+        } catch {
             throw new Error(`Failed to fetch category for identifier "${identifier}"`);
         }
     },

@@ -10,7 +10,7 @@ export const Route = createFileRoute('/creator/$identifier')({
 
         try {
             return await queryClient.ensureQueryData(categoryOptions(identifier));
-        } catch (error) {
+        } catch {
             throw new Error(`Could not load category "${identifier}"`);
         }
     }

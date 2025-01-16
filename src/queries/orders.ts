@@ -7,7 +7,7 @@ export const ordersOptions = queryOptions({
     queryFn: async () => {
         try {
             return await apiCall<Order[]>('orders');
-        } catch (error) {
+        } catch {
             throw new Error('Failed to fetch orders');
         }
     },

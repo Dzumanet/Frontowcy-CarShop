@@ -8,6 +8,7 @@ export const allPartsOptions = queryOptions({
         try {
             return await apiCall<Part[]>('parts');
         } catch (error) {
+            console.error('Error fetching parts:', error);
             throw new Error('Failed to fetch parts!');
         }
     }
